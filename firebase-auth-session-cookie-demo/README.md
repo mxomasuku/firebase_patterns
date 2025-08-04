@@ -9,7 +9,7 @@ This project demonstrates how to test Firebase Authentication using Node.js, Fir
 - Emulated Firebase Auth REST API usage via Axios
 - Express + TypeScript backend
 - Cookie-based session management
-- Fully local & safe to test
+- Fully local and safe to test
 
 ## Stack
 
@@ -20,12 +20,23 @@ This project demonstrates how to test Firebase Authentication using Node.js, Fir
 - TypeScript
 - dotenv
 
-## Setup Instructions
+## Quick Clone (Only This Demo)
 
-### 1. Clone the Repo & Install Dependencies
+Want to clone just this folder from the monorepo?
 
 ```bash
-git clone https://github.com/yourname/firebase-auth-session-cookie-demo.git
+git clone --filter=blob:none --no-checkout https://github.com/mxomasuku/firebase_patterns.git
+cd firebase_patterns
+git sparse-checkout init --cone
+git sparse-checkout set firebase-auth-session-cookie-demo
+git checkout main
+```
+
+## Setup Instructions
+
+### 1. Install Dependencies
+
+```bash
 cd firebase-auth-session-cookie-demo
 npm install
 ```
@@ -33,13 +44,13 @@ npm install
 ### 2. Add Firebase Admin Credentials
 
 - Place your `firebase-adminsdk.json` credentials file in the root
-- Make sure `.env` is configured correctly:
+- Add a `.env` file with the following content:
 
-```bash
+```env
 FIREBASE_AUTH_EMULATOR_URL=http://127.0.0.1:9099
 ```
 
-Note: Do NOT use real credentials for this demo. Use Firebase Emulator.
+> Do **not** use real credentials. This is designed for Firebase Emulator only.
 
 ### 3. Start the Firebase Auth Emulator
 
@@ -53,13 +64,14 @@ firebase emulators:start --only auth
 npm run dev
 ```
 
-The server should now be running on http://localhost:3000
+The server should now be running at:  
+http://localhost:3000
 
-## Endpoints
+## API Endpoints
 
 ### POST /api/login
 
-Accepts email and password. Creates a secure session cookie.
+Accepts email and password. Returns a secure session cookie in Set-Cookie.
 
 ```json
 {
@@ -70,7 +82,7 @@ Accepts email and password. Creates a secure session cookie.
 
 ### GET /api/protected (Coming Soon)
 
-Use middleware to protect this route using session cookie verification.
+Will demonstrate how to use Firebase Admin to verify session cookies.
 
 ## Folder Structure
 
@@ -89,4 +101,4 @@ MIT
 
 ---
 
-Created by Mxolisi Masuku — https://github.com/yourname
+Created by [Mxolisi Masuku](https://github.com/mxomasuku)
