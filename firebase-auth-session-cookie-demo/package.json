@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "build": "tsc",
+    "prod": "cross-env NODE_ENV=production node dist/server.js",
     "start": "node dist/server.js"
+    
   },
   "dependencies": {
     "axios": "^1.6.7",
@@ -16,6 +18,7 @@
   },
   "devDependencies": {
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "cross-env": "^10.0.0"
   }
 }
